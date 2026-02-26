@@ -1,0 +1,7 @@
+exp: exp08
+returns: data/returns.csv
+weights_file: weights.json
+alpha: 0.99
+window: 500
+seed: 0
+out: paper/tables/exp08_es_backtesting.csv

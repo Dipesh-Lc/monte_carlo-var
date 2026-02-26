@@ -1,0 +1,15 @@
+exp: exp06
+
+returns: data/returns.csv
+weights_file: weights.json
+
+alpha: 0.99
+n_sims: 20000
+reps: 200
+
+# Calibrated shift 
+shift_scale: 1.0
+
+seed: 0
+
+out: paper/tables/exp06_importance_sampling.csv

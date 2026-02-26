@@ -1,0 +1,10 @@
+exp: exp01
+
+returns: data/returns.csv
+weights_file: weights.json
+
+alpha: 0.99
+n_sims: 20000
+seed: 0
+
+out: paper/tables/exp01_classical_var.csv

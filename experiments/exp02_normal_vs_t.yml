@@ -1,0 +1,13 @@
+exp: exp02
+
+returns: data/returns.csv
+weights_file: weights.json
+
+alpha: 0.99
+n_sims: 20000
+seed: 0
+
+# Student-t degrees of freedom
+nu: 5
+
+out: paper/tables/exp02_normal_vs_t.csv

@@ -1,0 +1,20 @@
+exp: exp07
+
+returns: data/returns.csv
+weights_file: weights.json
+
+alpha: 0.99
+
+# Synthetic DGP
+T: 2500
+nu_true: 5
+
+# Rolling window
+window: 500
+
+# Model df used in forecasting
+nu_model: 5
+
+seed: 0
+
+out: paper/tables/exp07_misspecification.csv

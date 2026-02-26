@@ -1,0 +1,15 @@
+exp: exp04
+
+returns: data/returns.csv
+weights_file: weights.json
+
+alpha: 0.99
+conf: 0.95
+delta: 0.05
+
+reps: 200
+n_grid: [250, 500, 1000, 2000]
+
+seed: 0
+
+out: paper/tables/exp04_dkw_bounds.csv

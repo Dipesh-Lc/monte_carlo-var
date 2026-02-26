@@ -1,0 +1,18 @@
+exp: exp07
+
+returns: data/returns.csv
+weights_file: weights.json
+
+alpha: 0.99
+
+T: 2500
+nu_true: 5
+
+window: 500
+
+# Force normal forecast only
+nu_model: 1000   # large df ≈ normal
+
+seed: 0
+
+out: paper/tables/exp07_misspecification_normal.csv

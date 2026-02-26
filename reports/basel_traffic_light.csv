@@ -1,0 +1,5 @@
+method,exceptions_250,zone,notes
+parametric,10,RED,10+ exceptions (model likely inadequate)
+mc_normal,8,YELLOW,5-9 exceptions (increased scrutiny / multiplier)
+mc_bootstrap,5,YELLOW,5-9 exceptions (increased scrutiny / multiplier)
+garch_t,4,GREEN,0-4 exceptions (acceptable)

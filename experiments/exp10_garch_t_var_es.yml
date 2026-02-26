@@ -1,0 +1,7 @@
+exp: exp10
+returns: data/returns.csv
+weights_file: weights.json
+alpha: 0.99
+window: 500
+seed: 0
+out: paper/tables/exp10_garch_t_var_es.csv

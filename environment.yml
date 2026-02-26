@@ -1,0 +1,41 @@
+name: montecarlo-var
+channels:
+  - conda-forge
+  - defaults
+
+dependencies:
+  # Core
+  - python=3.11
+  - pip
+
+  # Scientific computing
+  - numpy
+  - pandas
+  - scipy
+
+  # Statistics & econometrics
+  - statsmodels
+  - scikit-learn
+
+  # Plotting
+  - matplotlib
+  - seaborn
+
+  # Jupyter workflow
+  - jupyterlab
+  - ipykernel
+
+  # Optimization / speed
+  - numba
+
+  # YAML experiment configs
+  - pyyaml
+
+  # Testing
+  - pytest
+
+  # Pip-only packages
+  - pip:
+      - yfinance
+      - arch
+      - pyportfolioopt
