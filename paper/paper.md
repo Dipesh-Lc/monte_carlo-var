@@ -4,13 +4,13 @@
 
 ## Abstract
 
-This project studies Monte Carlo estimators of extreme-tail risk measures—**Value-at-Risk (VaR)** and **Expected Shortfall (ES)**—under realistic features of financial returns, including **heavy tails**, **finite-sample uncertainty**, **model misspecification**, and **time-varying volatility**. The project integrates:
+This project studies Monte Carlo estimators of extreme-tail risk measures, **Value-at-Risk (VaR)** and **Expected Shortfall (ES)** under realistic features of financial returns, including **heavy tails**, **finite-sample uncertainty**, **model misspecification**, and **time-varying volatility**. The project integrates:
 
 1. **Large-sample theory** for quantile estimators (asymptotic normality / weak convergence),
-2. **Finite-sample concentration bounds** via the Dvoretzky–Kiefer–Wolfowitz (DKW) inequality,
+2. **Finite-sample concentration bounds** via the Dvoretzky-Kiefer-Wolfowitz (DKW) inequality,
 3. **Variance-reduced Monte Carlo** (antithetic variates; importance sampling by mean-shift),
 4. **Backtesting** using Kupiec unconditional coverage and Christoffersen independence tests,
-5. **Proper scoring rules** for joint VaR–ES evaluation (Fissler–Ziegel FZ0),
+5. **Proper scoring rules** for joint VaR-ES evaluation (Fissler-Ziegel FZ0),
 6. **Dynamic volatility models** (GARCH(1,1)) with Gaussian and Student-t innovations.
 
 Empirically, static Gaussian and historical methods tend to miscalibrate 99% VaR/ES on real returns; GARCH-Normal improves independence but often underestimates tail risk; **GARCH-Student-t** provides substantially improved calibration and diagnostics.
@@ -48,7 +48,7 @@ $$
 Estimate $\mu$ and $\Sigma$ from historical returns and simulate scenarios $X^{(i)}$. Portfolio return is $R^{(i)}=w^\top X^{(i)}$; losses are $L^{(i)}=-R^{(i)}$. VaR/ES are computed from $\{L^{(i)}\}$.
 
 **Figure:** exp01 VaR/ES comparison  
-![](paper/figures/exp01_var_cvar.png)
+![](figures/exp01_var_cvar.png)
 
 ### 2.2 Historical bootstrap (exp01)
 
@@ -94,10 +94,10 @@ $$
 **Key diagnostic:** when $\hat f(\hat q_\alpha)$ is near zero (common at small $n$ in extreme tails), CI width can inflate dramatically.
 
 **Figures:** RMSE, coverage, CI width, and density diagnostics  
-![](paper/figures/exp03_rmse_loglog.png)  
-![](paper/figures/exp03_coverage.png)  
-![](paper/figures/exp03_ci_width.png)  
-![](paper/figures/exp03_fhat_diagnostics.png)
+![](figures/exp03_rmse_loglog.png)  
+![](figures/exp03_coverage.png)  
+![](figures/exp03_ci_width.png)  
+![](figures/exp03_fhat_diagnostics.png)
 
 ---
 
@@ -122,20 +122,20 @@ $$
 (clipping $\alpha\pm\varepsilon$ into $[0,1]$).
 
 **Figures:** coverage and width comparison vs asymptotic CIs  
-![](paper/figures/exp04_coverage_compare.png)  
-![](paper/figures/exp04_width_compare.png)
+![](figures/exp04_coverage_compare.png)  
+![](figures/exp04_width_compare.png)
 
 ---
 
-## 6. Variance reduction (exp05–exp06)
+## 6. Variance reduction (exp05-exp06)
 
 ### 6.1 Antithetic variates (exp05)
 
 For $Z\sim\mathcal N(0,I)$, pair scenarios $Z$ and $-Z$ to induce negative correlation. This often reduces variance for smooth functionals; however **quantiles are non-smooth**, so gains may be limited.
 
 **Figures:** VaR/ES RMSE and std comparison  
-![](paper/figures/step1_variance_reduction_std_var.png)  
-![](paper/figures/step1_variance_reduction_rmse_var.png)
+![](figures/step1_variance_reduction_std_var.png)  
+![](figures/step1_variance_reduction_rmse_var.png)
 
 ### 6.2 Importance sampling via mean-shift (exp06)
 
@@ -148,8 +148,8 @@ $$
 We implement a tunable **shift scale** and evaluate variance/RMSE improvements.
 
 **Figures:** shift sweep diagnostics  
-![](paper/figures/exp06_shift_std_var.png)  
-![](paper/figures/exp06_shift_rmse_var.png)
+![](figures/exp06_shift_std_var.png)  
+![](figures/exp06_shift_rmse_var.png)
 
 ---
 
@@ -163,12 +163,12 @@ We generate a synthetic “true” path from multivariate Student-t with degrees
 Backtest via exception rate and Kupiec UC statistic.
 
 **Figures:** exception rates and Kupiec LR across settings  
-![](paper/figures/exp07_exceptions.png)  
-![](paper/figures/exp07_kupiec_lr.png)
+![](figures/exp07_exceptions.png)  
+![](figures/exp07_kupiec_lr.png)
 
 ---
 
-## 8. VaR/ES backtesting + proper scoring (exp08–exp10)
+## 8. VaR/ES backtesting + proper scoring (exp08-exp10)
 
 ### 8.1 Backtesting tests
 
@@ -192,7 +192,7 @@ $$
 Lower is better. Scores complement UC/IND tests (a good score does not guarantee nominal coverage).
 
 **Figure:** model ranking by mean FZ0 score  
-![](paper/figures/fz0_model_ranking.png)
+![](figures/fz0_model_ranking.png)
 
 ---
 
@@ -212,8 +212,8 @@ with innovations:
 This captures volatility clustering and tail thickness simultaneously.
 
 **Figures:** GARCH-t estimated $\sigma_t$ and $\nu_t$ series  
-![](paper/figures/exp10_sigma_series.png)  
-![](paper/figures/exp10_nu_series.png)
+![](figures/exp10_sigma_series.png)  
+![](figures/exp10_nu_series.png)
 
 ---
 

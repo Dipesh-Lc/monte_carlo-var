@@ -16,12 +16,12 @@ This project integrates statistical theory, Monte Carlo simulation, variance red
 Extreme-tail risk estimation is studies at high confidence levels (e.g. $\alpha = 0.99$) using:
 
 - **Large-sample theory** (quantile CLT / weak convergence)
-- **Finite-sample concentration** (Dvoretzky–Kiefer–Wolfowitz (DKW) inequality)
+- **Finite-sample concentration** (Dvoretzky-Kiefer-Wolfowitz (DKW) inequality)
 - **Monte Carlo methods**  (Gaussian parametric,Heavy-tailed Student-t)
 - **variance reduction** (antithetic variates, importance sampling)
 - **Model risk / misspecification** (Gaussian vs Student-t)
 - **Time-varying volatility** via **GARCH(1,1)**
-- **Backtesting** (Kupiec UC, Christoffersen independence) + **proper scoring** (Fissler–Ziegel / FZ0)
+- **Backtesting** (Kupiec UC, Christoffersen independence) + **proper scoring** (Fissler-Ziegel / FZ0)
 
 ---
 
@@ -67,7 +67,7 @@ Outputs are written to:
 ### 3) Generate plots + overview
 
 Open the notebook:
-
+- `notebooks/00_data_pipeline_backtesting.ipynb`
 - `notebooks/02_experiments_overview.ipynb`
 
 ---
@@ -98,15 +98,15 @@ Empirical estimators are computed from simulated losses.
 
 ## Experiments (what to look at)
 
-### exp01 — Classical Monte Carlo (Gaussian) vs historical bootstrap
+### exp01 : Classical Monte Carlo (Gaussian) vs historical bootstrap
 
 ![](paper/figures/exp01_var_cvar.png)
 
-### exp02 — Heavy tails: multivariate Student-t extension
+### exp02 : Heavy tails: multivariate Student-t extension
 
 ![](paper/figures/exp02_var_cvar.png)
 
-### exp03 — Quantile asymptotics: CLT + plug-in density $\hat f(q_\alpha)$
+### exp03 : Quantile asymptotics: CLT + plug-in density $\hat f(q_\alpha)$
 
 Quantile CLT (heuristic form):
 
@@ -118,7 +118,7 @@ $$
 ![](paper/figures/exp03_coverage.png)
 ![](paper/figures/exp03_ci_width.png)
 
-### exp04 — Finite-sample concentration: DKW quantile brackets
+### exp04 : Finite-sample concentration: DKW quantile brackets
 
 DKW inequality:
 
@@ -129,29 +129,29 @@ $$
 ![](paper/figures/exp04_coverage_compare.png)
 ![](paper/figures/exp04_width_compare.png)
 
-### exp05 — Variance reduction: antithetic variates (VaR/ES may be non-smooth)
+### exp05 : Variance reduction: antithetic variates (VaR/ES may be non-smooth)
 
 ![](paper/figures/step1_variance_reduction_std_var.png)
 ![](paper/figures/step1_variance_reduction_rmse_var.png)
 
-### exp06 — Importance sampling (Gaussian mean-shift) for tail estimation
+### exp06 : Importance sampling (Gaussian mean-shift) for tail estimation
 
 ![](paper/figures/exp06_shift_std_var.png)
 ![](paper/figures/exp06_shift_rmse_var.png)
 
-### exp07 — Model misspecification: synthetic Student-t truth vs Gaussian forecasting
+### exp07 : Model misspecification: synthetic Student-t truth vs Gaussian forecasting
 
 ![](paper/figures/exp07_exceptions.png)
 
-### exp08 — ES backtesting under real returns (normal vs historical)
+### exp08 : ES backtesting under real returns (normal vs historical)
 
 ![](paper/figures/exp08_es_ratio.png)
 
-### exp09 — Time-varying volatility: GARCH(1,1)-Normal VaR/ES
+### exp09 : Time-varying volatility: GARCH(1,1)-Normal VaR/ES
 
 ![](paper/figures/exp09_garch_es_ratio.png)
 
-### exp10 — GARCH(1,1)-Student-t VaR/ES + tail thickness tracking
+### exp10 : GARCH(1,1)-Student-t VaR/ES + tail thickness tracking
 
 ![](paper/figures/exp10_sigma_series.png)
 ![](paper/figures/exp10_nu_series.png)
@@ -182,11 +182,11 @@ Interpretation:
 
 ## Repository layout
 
-- `src/` — core methods (simulation, theory, bounds, backtests, GARCH)
-- `experiments/` — YAML experiment definitions
-- `scripts/` — data download + full experiment runner
-- `paper/` — generated figures/tables suitable for a write-up
-- `notebooks/` — experiment overview / visualization
+- `src/` - core methods (simulation, theory, bounds, backtests, GARCH)
+- `experiments/` - YAML experiment definitions
+- `scripts/` - data download + full experiment runner
+- `paper/` - generated figures/tables suitable for a write-up
+- `notebooks/` - experiment overview / visualization
 
 ---
 
