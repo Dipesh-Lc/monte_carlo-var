@@ -22,7 +22,7 @@ def garch_rolling_var(
     dist: "normal" or "t"
     window: rolling estimation window size
     refit_every: refit model every N days (speed)
-    scale: arch fits better if returns are scaled (e.g., percent). We'll scale and then scale back.
+    scale: arch fits better if returns are scaled (e.g., percent). I'll scale and then scale back.
 
     Returns a DataFrame with columns:
       VaR, RealizedLoss, Exception

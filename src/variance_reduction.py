@@ -1,4 +1,3 @@
-# src/variance_reduction.py
 from __future__ import annotations
 
 from typing import Dict, Any, Union
@@ -83,15 +82,12 @@ def control_variate_adjusted_losses(
     Control variate idea:
     Use a control variable with known expectation to reduce variance.
     A simple choice is the *loss* itself with known mean under the fitted normal model,
-    but since we're working with simulated draws from that normal, we can use sample mean
+    but since I am working with simulated draws from that normal, I can use sample mean
     (or set target=0 if returns are demeaned).
 
-    Pragmatic choice:
+    Practical choice:
     - control = "centered_loss": use (L - mean(L)) as control with target 0.
     This doesn't change VaR bias much, but can reduce noise in tail estimates.
-
-    NOTE: Control variates are much cleaner for expectations (like CVaR), not quantiles.
-    We'll mainly apply this to CVaR in exp05. For VaR we still include it as an experiment.
     """
     R = np.asarray(port_returns, dtype=float).ravel()
     L = -R

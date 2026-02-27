@@ -1,21 +1,25 @@
 # Python
 __pycache__/
-*.pyc
-*.pyo
-*.pyd
+*.py[cod]
 
 # Jupyter
-.ipynb_checkpoints
+.ipynb_checkpoints/
 
-# Data
-data/*.csv
-!data/returns.csv
-
-# Generated results
-paper/figures/*
-paper/tables/*
-
-# Virtual environments
+# Environments
+.venv/
 venv/
 .env/
 .conda/
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Data:
+data/*.csv
+reports
+
+# Paper outputs: track final figures/tables, ignore temp
+paper/tables/*.csv

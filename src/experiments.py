@@ -24,12 +24,8 @@ from src.backtests import kupiec_uc_from_exceptions, christoffersen_ind_test
 
 def _parse_weights(weights_str: str | None, weights_file: str | None) -> Union[dict, list]:
     """
-    Parse weights from either:
-    - --weights JSON string (dict or list)
+    Parse weights from:
     - --weights-file path to JSON file (dict or list)
-
-    Also supports Python-style dict strings using single quotes, e.g.:
-      --weights "{'AAPL':0.5,'MSFT':0.5}"
     """
     if weights_file:
         p = Path(weights_file)
@@ -77,7 +73,6 @@ def _load_returns_csv(path: str) -> pd.DataFrame:
     - columns = asset names (numeric)
     - rows = time points
     - values = returns (simple returns or log returns)
-    - optional Date/time column will be used as index if parseable
     """
     p = Path(path)
     if not p.exists():
@@ -265,7 +260,7 @@ def exp03_asymptotics(
     cols = list(returns_df.columns)
 
     # Convert weights to aligned array by reusing simulate helper indirectly:
-    # We'll just compute portfolio returns directly from sampled rows.
+    # compute portfolio returns directly from sampled rows.
     if isinstance(weights, dict):
         w = np.array([weights[c] for c in cols], dtype=float)
         w = w / w.sum()
@@ -641,8 +636,8 @@ def exp07_misspecification(
         std_p = float(np.sqrt(max(var_p, 1e-18)))
 
         # Normal VaR for loss: L = -R
-        # VaR_alpha(L) = -(mean_p + z_{1-alpha} * std_p) ??? careful:
-        # We want alpha-quantile of loss => alpha-quantile of (-R) = - (1-alpha)-quantile of R.
+        # VaR_alpha(L) = -(mean_p + z_{1-alpha} * std_p) ??? 
+        # Want alpha-quantile of loss => alpha-quantile of (-R) = - (1-alpha)-quantile of R.
         # So use q_R = mean + z_{1-alpha}*std; VaR_L = -q_R
         z = inv_norm_cdf(1.0 - alpha)  # negative number
         qR = mean_p + z * std_p

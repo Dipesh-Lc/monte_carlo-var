@@ -1,4 +1,3 @@
-# src/importance_sampling.py
 from __future__ import annotations
 
 from typing import Dict, Any, Union
@@ -49,7 +48,7 @@ def mc_is_normal_shift(
     """
     Importance sampling for tail VaR/CVaR under a fitted multivariate normal model.
 
-    We fit mu, cov from historical returns, then sample from a shifted-mean proposal:
+    I will fit mu, cov from historical returns, then sample from a shifted-mean proposal:
         X ~ N(mu + theta, cov)
 
     theta is chosen along the *portfolio loss direction* in a calibrated way:
@@ -63,7 +62,7 @@ def mc_is_normal_shift(
       theta = -(k * sigma_p) * v / (w^T v)
     which guarantees w^T theta = -k*sigma_p.
 
-    We compute likelihood ratio weights w_is = f0(x)/f1(x) and return:
+    I will compute likelihood ratio weights w_is = f0(x)/f1(x) and return:
       - port_returns, losses, is_weights, ESS diagnostic
     """
     if not isinstance(returns_df, pd.DataFrame):

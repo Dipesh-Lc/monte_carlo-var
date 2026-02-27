@@ -74,9 +74,9 @@ def quantile_asymptotic_ci(
 
     se = sqrt(alpha * (1 - alpha) / (n * (fhat ** 2)))
 
-    # Normal critical value (avoid scipy dependency): use approximation for z
+    # Normal critical value : I am using approximation for z
     # For 95% conf, z≈1.959963984540054; for general conf, approximate via inverse error function.
-    # We'll implement a small approximation for inverse normal CDF.
+    # I'll implement a small approximation for inverse normal CDF.
     z = z_from_conf(conf)
 
     ci_low = qhat - z * se

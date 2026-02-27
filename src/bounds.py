@@ -31,7 +31,7 @@ def dkw_quantile_bracket(
       q_{alpha-eps} <= q_alpha <= q_{alpha+eps}
     where eps = dkw_epsilon(n, delta).
 
-    We return empirical quantiles at (alpha-eps) and (alpha+eps), clipped to [0,1].
+    returns empirical quantiles at (alpha-eps) and (alpha+eps), clipped to [0,1].
     """
     if not (0.0 < alpha < 1.0):
         raise ValueError("alpha must be in (0,1).")

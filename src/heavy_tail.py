@@ -27,8 +27,8 @@ def simulate_multivariate_t(
       X = mu + Z / sqrt(U/nu)
     """
     if nu <= 2:
-        # You *can* allow <=2, but variance becomes infinite. For VaR research you can,
-        # but keep default nu > 2 for stability.
+        # I *can* allow <=2, but variance becomes infinite.,
+        # keep default nu > 2 for stability.
         raise ValueError("nu must be > 2 for finite covariance (recommended).")
 
     z = rng.multivariate_normal(mean=np.zeros_like(mu), cov=cov, size=int(n_sims))
@@ -90,12 +90,10 @@ def choose_nu_gridsearch(
     """
     Simple heuristic: choose nu by matching empirical kurtosis (average across assets)
     to theoretical Student-t kurtosis: 3*(nu-2)/(nu-4) for nu>4.
-
-    This isn't full MLE, but it's fast and defensible for a 10–25 day project.
     """
     X = returns_df.dropna().to_numpy(dtype=float)
     # sample excess kurtosis per asset (Fisher=False gives "plain kurtosis")
-    # We'll compute manual kurtosis to avoid dependencies.
+    # I'll compute manual kurtosis to avoid dependencies.
     mu = X.mean(axis=0)
     centered = X - mu
     m2 = np.mean(centered**2, axis=0)

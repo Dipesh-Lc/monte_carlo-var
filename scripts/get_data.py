@@ -83,7 +83,7 @@ def make_returns(prices: pd.DataFrame, log_returns: bool = False) -> pd.DataFram
 def main():
     DATA_DIR.mkdir(parents=True, exist_ok=True)
 
-    # Print weights table (nice sanity check)
+    # Print weights table 
     wdf = pd.DataFrame({"Ticker": TICKERS, "Weight": WEIGHTS})
     print("\nPortfolio:")
     print(wdf.to_string(index=False))
@@ -99,7 +99,7 @@ def main():
     returns.to_csv(RETURNS_PATH)
     print(f"Saved returns: {RETURNS_PATH} (rows={returns.shape[0]}, cols={returns.shape[1]})")
 
-    # Write weights.json (dict mapping to match your experiments loader)
+    # Write weights.json 
     weights_dict = {t: float(w) for t, w in zip(TICKERS, WEIGHTS)}
     WEIGHTS_JSON_PATH.write_text(json.dumps(weights_dict, indent=2), encoding="utf-8")
     print(f"Saved weights: {WEIGHTS_JSON_PATH}")

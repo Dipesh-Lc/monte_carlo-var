@@ -1,4 +1,3 @@
-# src/run_from_yaml.py
 from __future__ import annotations
 
 import argparse

@@ -1,4 +1,3 @@
-# src/backtests.py
 from __future__ import annotations
 
 import numpy as np
@@ -9,9 +8,7 @@ from src.simulate import mc_multivariate_normal, mc_bootstrap
 from src.risk import var_cvar_from_returns
 
 
-# =============================================================================
 # Statistical backtests (Kupiec UC + Christoffersen IND)
-# =============================================================================
 
 def kupiec_pof_test(n_exceptions: int, n_obs: int, alpha: float = 0.99) -> tuple[float, float]:
     """
@@ -114,9 +111,7 @@ def christoffersen_ind_test(exceptions: np.ndarray) -> tuple[float, float]:
     return lr_ind, pval
 
 
-# =============================================================================
 # Rolling VaR backtest engine (optional utility)
-# =============================================================================
 
 def rolling_backtest(
     returns_df: pd.DataFrame,
@@ -161,12 +156,12 @@ def rolling_backtest(
 
         elif method == "mc_normal":
             sims = mc_multivariate_normal(train, w, n_sims=n_sims, seed=seed + t)
-            stats = var_cvar_from_returns(sims["port_returns"], alpha=alpha)
+            stats = var_cvar_from_returns(sims["port_returns"] if isinstance(sims, dict) else sims, alpha=alpha)
             var_t = stats["VaR"]
 
         elif method == "mc_bootstrap":
             sims = mc_bootstrap(train, w, n_sims=n_sims, seed=seed + t)
-            stats = var_cvar_from_returns(sims["port_returns"], alpha=alpha)
+            stats = var_cvar_from_returns(sims["port_returns"] if isinstance(sims, dict) else sims, alpha=alpha)
             var_t = stats["VaR"]
 
         else:

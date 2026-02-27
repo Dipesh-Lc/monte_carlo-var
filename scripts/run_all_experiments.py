@@ -13,7 +13,7 @@ def main() -> None:
     )
     ap.add_argument(
         "--pattern",
-        default="experiments/exp0*.yml",
+        default="experiments/exp*.yml",
         help='Glob pattern for YAML files (default: "experiments/exp0*.yml")',
     )
     ap.add_argument(

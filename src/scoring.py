@@ -1,4 +1,3 @@
-# src/scoring.py
 from __future__ import annotations
 
 import numpy as np
@@ -16,7 +15,7 @@ def fz0_score(losses: np.ndarray, var: np.ndarray, es: np.ndarray, alpha: float)
 
     Notes:
     - requires ES > 0.
-    - we clamp ES away from 0 for numerical stability.
+    - I will clamp ES away from 0 for numerical stability.
     """
     L = np.asarray(losses, dtype=float).ravel()
     V = np.asarray(var, dtype=float).ravel()
